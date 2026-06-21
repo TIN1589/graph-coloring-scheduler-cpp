@@ -43,14 +43,14 @@ graph-coloring-scheduler-cpp/
 |-- run.bat
 |-- docs/
 |-- src/
-|   |-- main.cpp
-|   |-- models/
-|   |-- demo/
-|   |-- graph/
-|   |-- algorithm/
-|   |-- scheduler/
-|   |-- validator/
-|   `-- output/
+     |-- main.cpp
+     |-- models/
+     |-- demo/
+     |-- graph/
+     |-- algorithm/
+     |-- scheduler/
+     |-- validator/
+     `-- output/
 ```
 
 ## 5. Cach chay nhanh
