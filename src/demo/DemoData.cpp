@@ -1,60 +1,82 @@
+/**
+ * @file DemoData.cpp
+ * @brief Triển khai logic khởi tạo dữ liệu giả lập sử dụng mã học phần và chuẩn mã phòng thực tế.
+ */
 #include "DemoData.h"
 
-// Sinh dữ liệu 10 ca học (5 ngày x 2 buổi)
 vector<Timeslot> createTimeslots() {
     vector<Timeslot> slots;
+    vector<string> days = {"Thu 2", "Thu 3", "Thu 4", "Thu 5", "Thu 6", "Thu 7"};
     int id = 1;
-    vector<string> days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    vector<string> periods = {"Morning", "Afternoon"};
     
-    for (const string& day : days) {
-        for (const string& period : periods) {
-            slots.push_back({id++, day, period});
-        }
+    for (const auto& day : days) {
+        slots.push_back({id++, day, "Ca 1"}); // Sáng
+        slots.push_back({id++, day, "Ca 2"}); // Sáng
+        slots.push_back({id++, day, "Ca 3"}); // Chiều
+        slots.push_back({id++, day, "Ca 4"}); // Chiều
+        slots.push_back({id++, day, "Ca 5"}); // Tối (Thường dành cho E-Learning)
     }
     return slots;
 }
 
-// Sinh dữ liệu phòng học với sự phân hóa về sức chứa và loại phòng
+// Khởi tạo danh sách phòng học chuẩn hóa: [Dãy][Lầu][Số phòng]
 vector<Room> createRooms() {
     return {
-        {1, "A1-101", 30, "Theory"},  // Phòng nhỏ
-        {2, "A1-102", 100, "Theory"}, // Giảng đường lớn
-        {3, "B1-Lab1", 40, "Lab"},    // Phòng máy thực hành
-        {4, "B1-Lab2", 40, "Lab"}
+        // Dãy A
+        {"A001", "Phong A001 (Tang tret)", "Theory", 60}, 
+        {"A204", "Phong A204 (Lau 2)", "Theory", 60},
+        
+        // Dãy B - Phân khu lý thuyết / Hội trường
+        {"B303", "Phong B303 (Lau 3)", "Theory", 80},
+        {"B305", "Phong B305 (Lau 3)", "Theory", 120}, // Phòng lớn theo dữ liệu thực tế
+        
+        // Dãy C - Phân khu Thực hành (LAB)
+        {"C108", "Phong C108 (Lau 1)", "LAB", 45},     // LAB theo dữ liệu thực tế
+        {"C202", "Phong C202 (Lau 2)", "LAB", 45},
+        
+        // Ngoại lệ: Không gian học Trực tuyến / LMS
+        // Đặt sức chứa cực lớn để thuật toán không bao giờ báo lỗi thiếu chỗ
+        {"ELEARNING", "Phong Hoc Truc Tuyen (Tu hoc o nha)", "Elearning", 9999} 
     };
 }
 
-// Dataset Basic: Rất ít môn học, tài nguyên phòng và ca học dư dả. 
-// Thuật toán chạy ngẫu nhiên cũng có thể ra kết quả.
+// Dataset Basic: Dữ liệu thưa, thử nghiệm 3 loại phòng khác nhau
 vector<Subject> createBasicDemoData() {
     return {
-        {1, "Toan Rr", "GV01", "KTPM01", 25, "Theory"},
-        {2, "Lap trinh C++", "GV02", "KTPM01", 35, "Lab"},
-        {3, "Triet hoc", "GV03", "KTPM02", 80, "Theory"}
+        {"012012400311", "Phan tich thiet ke giai thuat", "GV01", {"CNTT01"}, "Theory", 50},
+        {"012012301309", "Lap trinh mang", "GV02", {"CNTT01"}, "LAB", 40},
+        {"0120005105117", "Triet hoc Mac - Lenin", "GV03", {"CNTT02"}, "Elearning", 60} // Môn lý luận thường học online
     };
 }
 
-// Dataset Medium: Tăng số lượng môn. Bắt đầu xuất hiện xung đột trực tiếp
-// (Trùng giảng viên GV01, trùng nhóm sinh viên KTPM01).
+// Dataset Medium: Bắt đầu có ghép lớp, kiểm thử sức chứa của phòng Hội trường (B305)
 vector<Subject> createMediumDemoData() {
     return {
-        {1, "Toan Rr", "GV01", "KTPM01", 40, "Theory"},
-        {2, "Cau truc DL", "GV01", "KTPM02", 40, "Theory"}, // Trùng GV01
-        {3, "Lap trinh C++", "GV02", "KTPM01", 35, "Lab"},  // Trùng nhóm SV KTPM01
-        {4, "Mang may tinh", "GV03", "KTPM03", 40, "Lab"},
-        {5, "Co so Du lieu", "GV04", "KTPM02", 90, "Theory"}// Lớp đông, ép phải dùng phòng A1-102
+        {"012012400224", "Cau truc du lieu va giai thuat", "GV01", {"CNTT01", "CNTT02"}, "Theory", 95}, // 95 SV -> Ép thuật toán phải chọn phòng B305
+        {"012012100214", "Thiet ke co so du lieu", "GV02", {"CNTT01"}, "LAB", 40}, // Phải chọn C108 hoặc C202
+        {"012012210523", "Cong nghe phan mem", "GV01", {"CNTT03"}, "Theory", 55}, // Trùng GV01
+        {"012012203807", "Chuyen de He thong giao thong thong minh", "GV04", {"CNTT02"}, "Elearning", 45} // Lịch online theo ảnh thực tế
     };
 }
 
-// Dataset Complex: Đồ thị dày đặc (Dense Graph). Nhiều môn học đan chéo nhau về giảng viên 
-// và nhóm sinh viên. Nút thắt cổ chai nằm ở các phòng Lab (chỉ có 2 phòng nhưng nhiều môn yêu cầu).
+// Dataset Complex: Đồ thị dày đặc
 vector<Subject> createComplexDemoData() {
-    vector<Subject> complexData = createMediumDemoData();
-    complexData.push_back({6, "AI", "GV02", "KTPM03", 30, "Lab"});
-    complexData.push_back({7, "HQT CSDL", "GV04", "KTPM01", 35, "Lab"});
-    complexData.push_back({8, "Phat trien Web", "GV05", "KTPM02", 35, "Lab"});
-    complexData.push_back({9, "Cong nghe PM", "GV01", "KTPM03", 80, "Theory"});
-    complexData.push_back({10, "Kien truc MT", "GV06", "KTPM01", 95, "Theory"});
-    return complexData;
+    vector<Subject> data = createMediumDemoData();
+    data.push_back({"012012100816", "Phan tich thiet ke he thong", "GV02", {"CNTT03"}, "Theory", 55});
+    data.push_back({"012012500107", "He dieu hanh", "GV05", {"CNTT01"}, "LAB", 40});
+    data.push_back({"012012300216", "Mang may tinh", "GV06", {"CNTT02", "CNTT03"}, "LAB", 80}); // Xung đột nặng: Cần xếp vào LAB nhưng sĩ số đông
+    data.push_back({"012000121509", "Xac suat thong ke", "GV07", {"CNTT01", "CNTT02", "CNTT03"}, "Elearning", 150}); // Ghép 3 lớp học Online
+    return data;
+}
+
+// --- API CÔNG KHAI ---
+vector<string> getAvailableDatasetNames() {
+    return {"basic", "medium", "complex"};
+}
+
+vector<Subject> getDemoDataByName(const string& name) {
+    if (name == "basic") return createBasicDemoData();
+    if (name == "medium") return createMediumDemoData();
+    if (name == "complex") return createComplexDemoData();
+    return {}; 
 }
