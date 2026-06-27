@@ -45,7 +45,7 @@ flowchart TD
     end
     
     AnhXa --> Logic
-
+```
 ### 2.1. Ràng buộc Cứng (Hard Constraints)
 > ⚠️ **Quy tắc Tuyệt đối:** Đây là các ranh giới không thể phá vỡ. Bất kỳ cấu hình màu nào vi phạm dù chỉ một điều kiện sẽ khiến toàn bộ lịch trình bị vô hiệu hóa (Infeasible).
 
@@ -149,6 +149,7 @@ graph LR
     A[Giao diện CLI / Web UI] -->|Gọi Tên Dataset: 'complex'| B(DemoData API Helper)
     B -->|Xây dựng Mảng & Trả về vectorSubject<>| C{Lõi Giải Thuật Đồ Thị}
     C -->|Output| D[ScheduleItem Report]
+```
 
 Sự cô lập này đảm bảo rằng bất kỳ thay đổi nào trong cấu trúc bộ test case ở tầng dưới sẽ không làm sập giao diện hiển thị ở tầng trên.
 
