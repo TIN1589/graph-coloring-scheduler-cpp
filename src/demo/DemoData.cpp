@@ -40,33 +40,44 @@ vector<Room> createRooms() {
     };
 }
 
-// Dataset Basic: Dữ liệu thưa, thử nghiệm 3 loại phòng khác nhau
-vector<Subject> createBasicDemoData() {
+static std::vector<Subject> createBasicDemoData() {
     return {
-        {"012012400311", "Phan tich thiet ke giai thuat", "GV01", {"CNTT01"}, "Theory", 50},
-        {"012012301309", "Lap trinh mang", "GV02", {"CNTT01"}, "LAB", 40},
-        {"0120005105117", "Triet hoc Mac - Lenin", "GV03", {"CNTT02"}, "Elearning", 60} // Môn lý luận thường học online
+        {"012012400311", "Lap trinh OOP",       "GV01", {"CNTT01"},           "LAB",       40},
+        {"012012301309", "Cau truc du lieu",    "GV02", {"CNTT01"},           "Theory",    50},
+        {"012012100214", "Co so du lieu",       "GV01", {"CNTT02"},           "LAB",       45},
+        {"012012300216", "Mang may tinh",       "GV03", {"CNTT01", "CNTT02"}, "LAB",       40},
+        {"0120005105117","Triet hoc Mac-Lenin", "GV04", {"CNTT03"},           "Elearning", 60}
     };
 }
 
-// Dataset Medium: Bắt đầu có ghép lớp, kiểm thử sức chứa của phòng Hội trường (B305)
-vector<Subject> createMediumDemoData() {
+static std::vector<Subject> createMediumDemoData() {
     return {
-        {"012012400224", "Cau truc du lieu va giai thuat", "GV01", {"CNTT01", "CNTT02"}, "Theory", 95}, // 95 SV -> Ép thuật toán phải chọn phòng B305
-        {"012012100214", "Thiet ke co so du lieu", "GV02", {"CNTT01"}, "LAB", 40}, // Phải chọn C108 hoặc C202
-        {"012012210523", "Cong nghe phan mem", "GV01", {"CNTT03"}, "Theory", 55}, // Trùng GV01
-        {"012012203807", "Chuyen de He thong giao thong thong minh", "GV04", {"CNTT02"}, "Elearning", 45} // Lịch online theo ảnh thực tế
+        {"012012400311", "Lap trinh OOP",       "GV01", {"CNTT01"},                   "LAB",       40},
+        {"012012400224", "Cau truc du lieu",    "GV02", {"CNTT01", "CNTT02"},         "Theory",    95},
+        {"012012100214", "Co so du lieu",       "GV01", {"CNTT02"},                   "LAB",       45},
+        {"012012300216", "Mang may tinh",       "GV03", {"CNTT01", "CNTT03"},         "LAB",       40},
+        {"012012500107", "He dieu hanh",        "GV04", {"CNTT03"},                   "Theory",    60},
+        {"012012210523", "An toan thong tin",   "GV05", {"CNTT03", "CNTT04"},         "LAB",       35},
+        {"012012301309", "Cong nghe web",       "GV02", {"CNTT04"},                   "Theory",    50},
+        {"012000121509", "Xac suat thong ke",   "GV06", {"CNTT01","CNTT02","CNTT03"}, "Elearning", 150}
     };
 }
 
-// Dataset Complex: Đồ thị dày đặc
-vector<Subject> createComplexDemoData() {
-    vector<Subject> data = createMediumDemoData();
-    data.push_back({"012012100816", "Phan tich thiet ke he thong", "GV02", {"CNTT03"}, "Theory", 55});
-    data.push_back({"012012500107", "He dieu hanh", "GV05", {"CNTT01"}, "LAB", 40});
-    data.push_back({"012012300216", "Mang may tinh", "GV06", {"CNTT02", "CNTT03"}, "LAB", 80}); // Xung đột nặng: Cần xếp vào LAB nhưng sĩ số đông
-    data.push_back({"012000121509", "Xac suat thong ke", "GV07", {"CNTT01", "CNTT02", "CNTT03"}, "Elearning", 150}); // Ghép 3 lớp học Online
-    return data;
+static std::vector<Subject> createComplexDemoData() {
+    return {
+        {"012012400311", "Lap trinh OOP",        "GV01", {"CNTT01"},                   "LAB",       40},
+        {"012012400224", "Cau truc du lieu",     "GV02", {"CNTT01", "CNTT02"},         "Theory",    95},
+        {"012012100214", "Co so du lieu",        "GV01", {"CNTT02"},                   "LAB",       45},
+        {"012012300216", "Mang may tinh",        "GV03", {"CNTT01", "CNTT03"},         "LAB",       40},
+        {"012012500107", "He dieu hanh",         "GV04", {"CNTT03"},                   "Theory",    60},
+        {"012012210523", "An toan thong tin",    "GV05", {"CNTT03", "CNTT04"},         "LAB",       35},
+        {"012012301309", "Cong nghe web",        "GV02", {"CNTT04"},                   "Theory",    50},
+        {"012012203807", "Tri tue nhan tao",     "GV06", {"CNTT02", "CNTT04"},         "LAB",       40},
+        {"012012100816", "Phan tich thiet ke",   "GV07", {"CNTT01", "CNTT04"},         "Theory",    70},
+        {"012012101011", "Kiem thu phan mem",    "GV03", {"CNTT02", "CNTT03"},         "Theory",    60},
+        {"012012302205", "Lap trinh mang",       "GV05", {"CNTT01"},                   "LAB",       40},
+        {"012000121509", "Xac suat thong ke",    "GV08", {"CNTT01","CNTT02","CNTT03"}, "Elearning", 150}
+    };
 }
 
 // --- API CÔNG KHAI ---
