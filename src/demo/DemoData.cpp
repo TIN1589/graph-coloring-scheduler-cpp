@@ -40,7 +40,7 @@ vector<Room> createRooms() {
     };
 }
 
-static std::vector<Subject> createBasicDemoData() {
+static vector<Subject> createBasicDemoData() {
     return {
         {"012012400311", "Lap trinh OOP",       "GV01", {"CNTT01"},           "LAB",       40},
         {"012012301309", "Cau truc du lieu",    "GV02", {"CNTT01"},           "Theory",    50},
@@ -50,7 +50,7 @@ static std::vector<Subject> createBasicDemoData() {
     };
 }
 
-static std::vector<Subject> createMediumDemoData() {
+static vector<Subject> createMediumDemoData() {
     return {
         {"012012400311", "Lap trinh OOP",       "GV01", {"CNTT01"},                   "LAB",       40},
         {"012012400224", "Cau truc du lieu",    "GV02", {"CNTT01", "CNTT02"},         "Theory",    95},
@@ -63,7 +63,7 @@ static std::vector<Subject> createMediumDemoData() {
     };
 }
 
-static std::vector<Subject> createComplexDemoData() {
+static vector<Subject> createComplexDemoData() {
     return {
         {"012012400311", "Lap trinh OOP",        "GV01", {"CNTT01"},                   "LAB",       40},
         {"012012400224", "Cau truc du lieu",     "GV02", {"CNTT01", "CNTT02"},         "Theory",    95},
