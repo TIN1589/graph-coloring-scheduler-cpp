@@ -83,7 +83,7 @@ Hoac bien dich thu cong:
 
 | Thanh vien | Module | File chinh |
 | --- | --- | --- |
-| Kien Pham | Model + demo data | `ScheduleData.h`, `DemoData.cpp` |
+| Khiem Pham | Model + demo data | `ScheduleData.h`, `DemoData.cpp` |
 | Dinh Chi | Conflict graph | `ConflictGraph.cpp` |
 | Trung Tin | Greedy + Welsh-Powell | `GreedyColoring.cpp`, `WelshPowell.cpp` |
 | To Quyen | Schedule + output | `ScheduleBuilder.cpp`, `PrintSchedule.cpp` |
