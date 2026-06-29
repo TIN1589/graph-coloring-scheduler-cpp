@@ -16,9 +16,9 @@ vector<Timeslot> createTimeslots();
 vector<Room> createRooms();
 
 // Các hàm helper nội bộ để sinh dữ liệu
-vector<Subject> createBasicDemoData();
+/*vector<Subject> createBasicDemoData();
 vector<Subject> createMediumDemoData();
-vector<Subject> createComplexDemoData();
+vector<Subject> createComplexDemoData();*/
 
 // --- API CÔNG KHAI ---
 // Lấy danh sách tên các bộ dữ liệu hiện có
