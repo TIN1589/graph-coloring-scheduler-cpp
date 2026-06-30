@@ -79,7 +79,7 @@ Hoac bien dich thu cong:
 10. Validator kiem tra lich co hop le khong.
 11. Cham diem chat luong lich.
 
-## 7. Phan cong   
+## 7. Phan cong
 
 | Thanh vien | Module | File chinh |
 | --- | --- | --- |
