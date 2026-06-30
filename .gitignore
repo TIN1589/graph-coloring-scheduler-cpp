@@ -1,6 +1,19 @@
-*.exe
-*.o
-*.obj
-build/
+# Bo qua thu muc cache cua Visual Studio / VS Code
+.vs/
 .vscode/
-.DS_Store
+
+# Bo qua cac thu muc build sinh ra file thuc thi
+Debug/
+Release/
+x64/
+x86/
+build/
+out/
+
+# Bo qua cac file nhi phan va file rac sinh ra trong qua trinh bien dich
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.tlog

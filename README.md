@@ -43,14 +43,14 @@ graph-coloring-scheduler-cpp/
 |-- run.bat
 |-- docs/
 |-- src/
-|   |-- main.cpp
-|   |-- models/
-|   |-- demo/
-|   |-- graph/
-|   |-- algorithm/
-|   |-- scheduler/
-|   |-- validator/
-|   `-- output/
+     |-- main.cpp
+     |-- models/
+     |-- demo/
+     |-- graph/
+     |-- algorithm/
+     |-- scheduler/
+     |-- validator/
+     `-- output/
 ```
 
 ## 5. Cach chay nhanh
@@ -79,11 +79,11 @@ Hoac bien dich thu cong:
 10. Validator kiem tra lich co hop le khong.
 11. Cham diem chat luong lich.
 
-## 7. Phan cong 
+## 7. Phan cong
 
 | Thanh vien | Module | File chinh |
 | --- | --- | --- |
-| Kien Pham | Model + demo data | `ScheduleData.h`, `DemoData.cpp` |
+| Khiem Pham | Model + demo data | `ScheduleData.h`, `DemoData.cpp` |
 | Dinh Chi | Conflict graph | `ConflictGraph.cpp` |
 | Trung Tin | Greedy + Welsh-Powell | `GreedyColoring.cpp`, `WelshPowell.cpp` |
 | To Quyen | Schedule + output | `ScheduleBuilder.cpp`, `PrintSchedule.cpp` |
