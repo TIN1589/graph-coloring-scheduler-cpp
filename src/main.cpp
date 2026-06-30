@@ -1,10 +1,12 @@
 #include <iostream>
 #include "demo/DemoData.h"
 #include "graph/ConflictGraph.h"
+#include "algorithm/GreedyColoring.h"
+#include "algorithm/WelshPowell.h"
 
 
 int main() {
-    std::cout << "KHOI DONG HE THONG KIEM THU TICH HOP PHASE 1 & 2\n\n";
+    std::cout << "KHOI DONG HE THONG KIEM THU TICH HOP PHASE 1 VA 2\n\n";
 
 
     // 1. Lay du lieu demo muc do "medium" tu Phase 1
@@ -22,6 +24,19 @@ int main() {
     //    Tham so 'true' se in them ma tran ke (chi hien thi khi N <= 15)
     graph.printGraphInfo(true);
 
+
+    std::cout << "\nTO MAU DO THI (XEP LICH)\n\n";
+
+    // 4. Chay thuat toan Greedy
+    ColoringResult greedyResult = GreedyColoring::run(graph);
+    GreedyColoring::printResult(greedyResult, graph);
+
+    // 5. Chay thuat toan Welsh-Powell
+    ColoringResult wpResult = WelshPowell::run(graph);
+    WelshPowell::printResult(wpResult, graph);
+
+    // 6. So sanh hieu qua
+    WelshPowell::printComparison(greedyResult, wpResult);
 
     return 0;
 }
