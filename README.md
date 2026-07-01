@@ -371,8 +371,8 @@ Sau bước tiền xử lý, danh sách đỉnh được sắp xếp theo bậc 
 
 | Khung Giờ (Màu)      | Môn Học Được Xếp Lịch                              | Giảng Viên           | Nhóm Lớp                    | Trạng Thái Kiểm Tra                        |
 | :-------------------- | :-------------------------------------------------- | :------------------- | :--------------------------- | :------------------------------------------ |
-| Ca Sáng T2 (Màu 1)   | Lập Trình C++ (M01), Cấu Trúc Dữ Liệu (M03)       | GV_An, GV_Chi        | Nhóm_X, Nhóm_Y, Nhóm_Z     | ✅ Hợp lệ (Không trùng GV, không trùng lớp) |
-| Ca Chiều T2 (Màu 2)  | Toán Rời Rạc (M02), CSDL (M04), Mạng MT (M05)      | GV_Bình, GV_An, GV_Đức | Nhóm_Y, Nhóm_Z, Nhóm_X  | ✅ Hợp lệ (Không trùng GV, không trùng lớp) |
+| Ca Sáng T2 (Màu 1)   | Lập Trình C++ (M01), Cấu Trúc Dữ Liệu (M03)       | GV_An, GV_Chi        | Nhóm_X, Nhóm_Y, Nhóm_Z     |  Hợp lệ (Không trùng GV, không trùng lớp) |
+| Ca Chiều T2 (Màu 2)  | Toán Rời Rạc (M02), CSDL (M04), Mạng MT (M05)      | GV_Bình, GV_An, GV_Đức | Nhóm_Y, Nhóm_Z, Nhóm_X  |  Hợp lệ (Không trùng GV, không trùng lớp) |
 
 ### 6.2. Đối sánh thực nghiệm và hàm phạt (Penalty Function)
 
