@@ -14,12 +14,8 @@
 
 
 int main() {
-    std::cout << "============================================================\n";
     std::cout << "  HE THONG XEP LICH HOC - GRAPH COLORING SCHEDULER\n";
-    std::cout << "============================================================\n\n";
 
-
-    
     std::vector<Subject> subjects = getDemoDataByName("medium");
     std::vector<Timeslot> timeslots = createTimeslots();
     std::vector<Room> rooms = createRooms();
